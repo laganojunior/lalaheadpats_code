@@ -39,18 +39,18 @@ def check_cache_table(game, attacker_health, defender_health, turns_left, cache_
 
   # If it seems that the (attacker, defender) pair has converged in respect to turn_left,
   # just short cut and use that value
-  if turns_left >= 10:
-    val1 = cache_table.get((game, attacker_health, defender_health, turns_left - 1))
-    val2 = cache_table.get((game, attacker_health, defender_health, turns_left - 2))
-
-    if val1 is not None and val2 is not None \
-       and val1["value"] == val2["value"] \
-       and np.array_equal(val1["row_strategy"], val2["row_strategy"]) \
-       and np.array_equal(val1["col_strategy"], val2["col_strategy"]):
-      print(f"Using converged solution {val1} for {(game, attacker_health, defender_health, turns_left)}")
-      cache_table[(game,attacker_health, defender_health, turns_left)] = val1
-
-      return val1["value"]
+#  if turns_left >= 10:
+#    val1 = cache_table.get((game, attacker_health, defender_health, turns_left - 1))
+#    val2 = cache_table.get((game, attacker_health, defender_health, turns_left - 2))
+#
+#    if val1 is not None and val2 is not None \
+#       and val1["value"] == val2["value"] \
+#       and np.array_equal(val1["row_strategy"], val2["row_strategy"]) \
+#       and np.array_equal(val1["col_strategy"], val2["col_strategy"]):
+#      print(f"Using converged solution {val1} for {(game, attacker_health, defender_health, turns_left)}")
+#      cache_table[(game,attacker_health, defender_health, turns_left)] = val1
+#
+#      return val1["value"]
 
   return None
 
